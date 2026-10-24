@@ -1,0 +1,2 @@
+# Django 5.2 is an LTS release and officially supports Python 3.12.
+Django==5.2.18

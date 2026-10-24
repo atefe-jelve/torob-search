@@ -1,0 +1,1 @@
+"""Flight comparison project package."""

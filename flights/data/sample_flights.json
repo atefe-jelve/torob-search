@@ -1,0 +1,122 @@
+{
+  "fixture_notice": "Synthetic MVP data; not an Alibaba response.",
+  "offers": [
+    {
+      "offerId": "fixture-thr-mhd-001",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-25T05:50:00",
+      "arrivalDateTime": "2026-10-25T07:20:00",
+      "airline": "آزمایشی ایر",
+      "flightType": "سیستمی",
+      "aircraftType": "Boeing 737",
+      "adultPrice": "5599000",
+      "currency": "تومان"
+    },
+    {
+      "offerId": "fixture-thr-mhd-002",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-25T08:10:00",
+      "arrivalDateTime": "2026-10-25T09:45:00",
+      "airline": "نمونه پرواز",
+      "flightType": "چارتر",
+      "aircraftType": "Airbus A320",
+      "adultPrice": "6500000",
+      "currency": "ریال"
+    },
+    {
+      "offerId": "fixture-thr-mhd-003",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-25T12:00:00",
+      "arrivalTime": "13:30",
+      "airline": "پرواز ناقص",
+      "flightType": "سیستمی",
+      "adultPrice": "7800000"
+    },
+    {
+      "offerId": "fixture-thr-mhd-004",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-25T15:00:00",
+      "arrivalDateTime": "2026-10-25T16:30:00",
+      "airline": "نمونه چهارم",
+      "flightType": "سیستمی",
+      "aircraftType": "ATR 72",
+      "adultPrice": "7200000",
+      "currency": "تومان"
+    },
+    {
+      "offerId": "fixture-thr-mhd-005",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-25T17:00:00",
+      "arrivalDateTime": "2026-10-25T18:45:00",
+      "airline": "پرواز بدون نوع",
+      "aircraftType": "Embraer 190",
+      "adultPrice": "6100000",
+      "currency": "تومان"
+    },
+    {
+      "offerId": "fixture-thr-mhd-006",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-27T06:40:00",
+      "arrivalDateTime": "2026-10-27T08:05:00",
+      "airline": "نمونه جایگزین یک",
+      "flightType": "سیستمی",
+      "aircraftType": "Boeing 737",
+      "adultPrice": "5700000",
+      "currency": "تومان"
+    },
+    {
+      "offerId": "fixture-thr-mhd-007",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-27T11:20:00",
+      "arrivalDateTime": "2026-10-27T13:00:00",
+      "airline": "نمونه جایگزین دو",
+      "flightType": "چارتر",
+      "aircraftType": "Airbus A320",
+      "adultPrice": "6800000",
+      "currency": "ریال"
+    },
+    {
+      "offerId": "fixture-thr-mhd-008",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-27T18:10:00",
+      "arrivalDateTime": "2026-10-27T19:40:00",
+      "airline": "نمونه جایگزین سه",
+      "flightType": "سیستمی",
+      "aircraftType": "ATR 72",
+      "adultPrice": "6300000",
+      "currency": "تومان"
+    },
+    {
+      "offerId": "fixture-thr-mhd-009",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-10-30T09:00:00",
+      "arrivalDateTime": "2026-10-30T10:45:00",
+      "airline": "نمونه فاصله‌دار",
+      "flightType": "سیستمی",
+      "aircraftType": "Embraer 190",
+      "adultPrice": "5900000",
+      "currency": "تومان"
+    },
+    {
+      "offerId": "fixture-thr-mhd-010",
+      "origin": "THR",
+      "destination": "MHD",
+      "departureDateTime": "2026-11-02T09:00:00",
+      "arrivalDateTime": "2026-11-02T10:30:00",
+      "airline": "نمونه خارج از بازه",
+      "flightType": "چارتر",
+      "aircraftType": "Airbus A320",
+      "adultPrice": "7000000",
+      "currency": "تومان"
+    }
+  ]
+}

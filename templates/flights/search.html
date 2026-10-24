@@ -1,0 +1,88 @@
+<!doctype html>
+{% load static %}
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>جست‌وجوی پرواز</title>
+    <link rel="stylesheet" href="{% static 'flights/styles.css' %}">
+</head>
+<body>
+    <main>
+        <h1>جست‌وجوی پرواز داخلی</h1>
+        <p>این نسخه آزمایشی است و از داده‌های محلی استفاده می‌کند؛ داده‌ها پاسخ زنده علی‌بابا نیستند.</p>
+
+        {% if valid_submission %}
+            <p role="status" class="status">ورودی جست‌وجو معتبر است.</p>
+        {% endif %}
+        {% if load_error %}
+            <p role="alert" class="warning">{{ load_error }}</p>
+        {% endif %}
+        {% if normalization_issues %}
+            <section class="warning" aria-label="خطاهای داده">
+                <strong>برخی رکوردها قابل نرمال‌سازی نبودند:</strong>
+                <ul>
+                    {% for issue in normalization_issues %}
+                        <li>رکورد {{ issue.index|add:1 }}: {{ issue.message }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <p>
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+                    {{ field.errors }}
+                </p>
+            {% endfor %}
+            <button type="submit">اعتبارسنجی جست‌وجو</button>
+        </form>
+
+        {% if valid_submission and not load_error %}
+            {% if results %}
+                <section aria-label="نتایج پرواز">
+                    <h2>نتایج آزمایشی</h2>
+                    <p class="comparison-note">رتبه‌ها در هر گروه ارز مستقل‌اند؛ به‌دلیل نبود نرخ تبدیل، یک برنده جهانی بین ارزها اعلام نمی‌شود.</p>
+                    <div class="results">
+                        {% for result in results %}
+                            <article class="flight-card {% if result.completeness == 'incomplete' %}incomplete{% endif %}">
+                                <header class="flight-card__header">
+                                    <h3>{{ result.offer.airline|default:"شرکت هواپیمایی نامشخص" }}</h3>
+                                </header>
+                                {% if result.completeness == 'incomplete' %}
+                                    <p class="warning">این نتیجه ناقص است و پیشنهاد کامل رفت‌وبرگشت محسوب نمی‌شود.</p>
+                                {% endif %}
+                                <div class="route">
+                                    <span>مبدأ: {{ result.offer.origin|default:"نامشخص" }}</span>
+                                    <span>مقصد: {{ result.offer.destination|default:"نامشخص" }}</span>
+                                </div>
+                                <dl>
+                                    <dt>حرکت</dt><dd>{{ result.departure_display|default:"—" }}</dd>
+                                    <dt>رسیدن</dt><dd>{{ result.arrival_display|default:"—" }}</dd>
+                                    <dt>مدت سفر</dt><dd>{{ result.duration_display|default:"—" }}</dd>
+                                    <dt>قیمت</dt><dd>{{ result.price_with_currency }}</dd>
+                                    <dt>نوع پرواز</dt><dd>{{ result.offer.flight_type|default:"نامشخص" }}</dd>
+                                    <dt>هواپیما</dt><dd>{{ result.offer.aircraft_type|default:"نامشخص" }}</dd>
+                                </dl>
+                                {% if result.warnings %}
+                                    <ul class="warnings">
+                                        {% for warning in result.warnings %}<li>{{ warning }}</li>{% endfor %}
+                                    </ul>
+                                {% endif %}
+                                {% if result.source_url %}<a href="{{ result.source_url }}" rel="noopener noreferrer">مشاهده منبع</a>{% endif %}
+                            </article>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% else %}
+                <p role="status">برای مسیر و تاریخ انتخاب‌شده، پروازی در داده‌های موجود پیدا نشد. تاریخ دیگری انتخاب کنید یا معیارهای جست‌وجو را تغییر دهید.</p>
+            {% endif %}
+        {% endif %}
+    </main>
+</body>
+</html>
